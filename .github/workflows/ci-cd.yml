@@ -6,10 +6,10 @@ on:
             - main
             - master
             - test
-    pull-request: #proposal to merge a set of code changes into the main branch
+    pull_request: #proposal to merge a set of code changes into the main branch
         branches:
             - master
-    workflow-dispatch:
+    workflow_dispatch:
 
 permissions:
     contents: read
@@ -25,7 +25,7 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Build docker image
-              uses: |
+              run: |
                docker build -t secure-nginx:latest .
 
             - name: run Trivy vulnerability scan
